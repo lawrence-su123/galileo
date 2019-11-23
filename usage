@@ -1,0 +1,28 @@
+//Using the galileio board with linux
+//plug in pci and serial terminal before these steps
+//make sure you have correct image on micro sd card before procceding
+//Make sure wifi card has an external receiver, signal will not be strong enough without
+//connecting to board from host computer
+sudo apt-get install screen
+sudo screen /dev/ttyUSB0 115200
+//press enter twice
+//use root as user
+//passwd to set password
+cat /etc/version
+//should show a later than 2014 image, 2014 image is base os on board (bad)
+//connecting to wifi
+
+lspci -k | grep -A 3 -i "network"
+
+//use connman from IoTDK
+connmanctl
+
+enable wifi
+
+scan wifi
+
+services
+
+agent on
+
+connect //wifi name from services
